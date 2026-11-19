@@ -27,7 +27,8 @@ find_package(mujoco_ros2_control_msgs REQUIRED)
 find_package(mujoco_ros2_control_plugins REQUIRED)
 find_package(Threads REQUIRED)
 find_package(transmission_interface REQUIRED)
-find_package(backward_ros REQUIRED)
+# Optional: only provides stack traces on crashes.
+find_package(backward_ros QUIET)
 find_package(tinyxml2_vendor QUIET)
 find_package(TinyXML2 REQUIRED)
 

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mujoco_vendor</name>
+  <version>0.1.2</version>
+  <description>
+    Drop-in replacement for pal-robotics/mujoco_vendor that wraps an already installed
+    MuJoCo binary SDK (default: $MUJOCO_DIR, $MUJOCO_PY_MUJOCO_PATH or /opt/.mujoco/mujoco-3.5.0)
+    instead of downloading one. Exposes the same CMake targets/variables
+    (mujoco::mujoco, mujoco::libmujoco_simulate, lodepng, MUJOCO_*_DIR).
+  </description>
+  <maintainer email="lab@ia-cobotics.com">IA-Cobotics Lab</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>git</buildtool_depend>
+
+  <build_depend>libglfw3-dev</build_depend>
+  <exec_depend>libglfw3</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

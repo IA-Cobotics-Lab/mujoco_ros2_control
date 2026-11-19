@@ -7,7 +7,8 @@ export_windows_symbols()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(backward_ros REQUIRED)
+# Optional: only provides stack traces on crashes.
+find_package(backward_ros QUIET)
 find_package(rclcpp REQUIRED)
 find_package(realtime_tools REQUIRED)
 find_package(pluginlib REQUIRED)
