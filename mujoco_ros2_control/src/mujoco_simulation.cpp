@@ -653,6 +653,12 @@ bool MujocoSimulation::initialize(rclcpp::Node::SharedPtr node, const std::strin
       RCLCPP_INFO(get_logger(), "Starting the MuJoCo rendering thread...");
       sim_->RenderLoop();
 
+      // GlfwAdapter normally frees the GPU objects in its destructor. Here the
+      // controller manager destroys Simulate on a different thread with no
+      // current GL context. Release those objects on the owning thread first.
+      mjr_freeContext(&sim_->platform_ui->mjr_context());
+      glfwMakeContextCurrent(nullptr);
+
       if (detail::handle_render_loop_exit(sim_->exitrequest, explicit_shutdown_requested_,
                                           node_->get_node_base_interface()->get_context()))
       {
